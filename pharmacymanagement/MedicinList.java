@@ -1,11 +1,11 @@
 package pharmacymanagement;
 import java.util.ArrayList;
 public class MedicinList {
-	private ArrayList<Medicin>mL=new ArrayList<>();
+	 ArrayList<Medicin>mL=new ArrayList<>();
 
-	public MedicinList(ArrayList<Medicin> medicinList) {
+	public MedicinList() {
 		
-		this.mL = medicinList;
+		
 	    }
 	
 	public void addMedicinStock(Medicin m1 , int quantity) {
@@ -23,9 +23,9 @@ public class MedicinList {
         }
     }
 	
-	public void deleteMedicinStock(){
+	public void deleteMedicinStock(int a){
         for(Medicin b:mL){
-            if(b.getQuantityStock()==0){
+            if(b.getId()==a){
                 mL.remove(b);
             }
         }

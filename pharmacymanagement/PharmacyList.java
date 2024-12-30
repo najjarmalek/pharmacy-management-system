@@ -3,8 +3,8 @@ import java.util.ArrayList;
 public class PharmacyList {
 	ArrayList<Pharmacist>pharmacistList=new ArrayList<>();
 	
-	public PharmacyList(ArrayList<Pharmacist> pharmacistList) {
-        this.pharmacistList = pharmacistList;
+	public PharmacyList() {
+        
     }
 	
 	public void addPharmacist(Pharmacist a) {
@@ -17,10 +17,10 @@ public class PharmacyList {
         }
     }
 
-	public void deletePharmacist(int a) {
+	public void deletePharmacist(int id) {
 	    for (Pharmacist p : pharmacistList) {
-	        if (p.getpId() == a) {
-	        	pharmacistList.remove(a);
+	        if (p.getpId() == id) {
+	        	pharmacistList.remove(id);
 	        	break;
 	        }
 	    }

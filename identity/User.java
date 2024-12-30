@@ -5,9 +5,8 @@ public  abstract class User {
     private String password="user1234";
 
 
-    public User(String userName, String password) {
-        this.userName = userName;
-        this.password = password;
+    public User () {
+    	
     }
 
     public String login(String a,String b){
@@ -28,9 +27,9 @@ public  abstract class User {
     }
 
 
-    abstract void viewMedicin();
-    abstract void viewBookedMedicin();
-    abstract void modifyBookedMedicin(String a);
-    abstract void viewMedicinBookList();
+    public abstract void viewMedicin();
+    public abstract void viewBookedMedicin();
+    public abstract void modifyBookedMedicin();
+    
 
 }

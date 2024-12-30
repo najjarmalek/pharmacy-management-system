@@ -31,11 +31,9 @@ public abstract class Admin {
    public abstract void addMedicinStock();
    public abstract void viewPharmacistInformation();
    public abstract void viewMedicin();
-   public abstract void viewBookedMedicin();
-   public abstract void modifyBookedMedicin();
+   public abstract void deletebooked();
    public abstract void deletePharmacist();
    public abstract void deleteMedicin();  
-   public abstract void deleteBookedMedicine();
    public abstract void deleteMedicinStock();
 
 }

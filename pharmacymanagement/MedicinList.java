@@ -23,12 +23,17 @@ public class MedicinList {
         }
     }
 	
-	public void deleteMedicinStock(int a){
+	public void deleteMedicinStock(int a,int quantity){
         for(Medicin b:mL){
             if(b.getId()==a){
-                mL.remove(b);
+                b.setQuantityStock(b.getQuantityStock()-quantity);;
             }
         }
     }
+
+	public void deleteMedicin(int id){
+		mL.removeIf(m -> m.getId() == id);
+		
+	}
 	 
 }

@@ -9,6 +9,16 @@ public class BookMedicine {
         
     }
 
+    public void viewbooked(){
+        for(Medicin b:bookedMedicine){
+            System.out.println(b);
+        }
+    }
+
+    public void addBookedMedicin(Medicin b){
+        bookedMedicine.add(b);
+    }
+
     public void viewBookedMedicin(){
         for(Medicin b:bookedMedicine){
  

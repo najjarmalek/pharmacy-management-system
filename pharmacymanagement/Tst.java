@@ -1,7 +1,7 @@
 package pharmacymanagement;
 import identity.Admin;
 import identity.User;
-import java.util.ArrayList;
+
 import java.util.Scanner;
 public class Tst {
 	
@@ -11,10 +11,10 @@ public class Tst {
 		PharmacyList pL = new PharmacyList();
 		MedicinList mL=new MedicinList();
 		BookMedicine bm = new BookMedicine();
-		Medicin m1 = new Medicin(1111, "doliprane", 14, 5.5);
-		Medicin m2 = new Medicin(2222, "hexalaton", 100, 15.0);
-		Medicin m3 = new Medicin(3333, "cerome", 20, 44.5);
-		Medicin m4 = new Medicin(4444, "pommade", 200, 14.6);
+		Medicin m1 = new Medicin(1, "doliprane", 14, 5.5);
+		Medicin m2 = new Medicin(2, "hexalaton", 100, 15.0);
+		Medicin m3 = new Medicin(3, "cerome", 20, 44.5);
+		Medicin m4 = new Medicin(4, "pommade", 200, 14.6);
 		mL.addMedicinStock(m1, 14);
 		mL.addMedicinStock(m2, 100);
 		mL.addMedicinStock(m3, 20);
@@ -27,6 +27,8 @@ public class Tst {
 		pL.addPharmacist(p2);
 		pL.addPharmacist(p3);
 		pL.addPharmacist(p4);
+		bm.addBookedMedicin(m1);
+		bm.addBookedMedicin(m4);
 		
 
 
@@ -35,6 +37,7 @@ public class Tst {
             public void addPharmacist() {
         		System.out.print("donner id : ");
         		int id = var.nextInt();
+				var.nextLine(); 
         		System.out.print("donner nom : ");
         		String nom=var.nextLine();
         		System.out.print("donner contact : ");
@@ -47,15 +50,18 @@ public class Tst {
         	public void addMedicinStock() {
         		System.out.print("Veuiller entrer l'ID du medicament :");
         		int id = var.nextInt();
+				var.nextLine(); 
         		System.out.print("Veuillez entrer le nom de medicament :");
         		String nom = var.nextLine();
         		System.out.print("Veuillez entrer le qauntite du stock: ");
         		int quantity=var.nextInt();
+				var.nextLine();
         		System.out.print("Veuillez entrer le prix: ");
         		double prix=var.nextDouble();
+				var.nextLine();
         		Medicin m = new Medicin(id,nom,quantity,prix);
         		mL.addMedicinStock(m, quantity); 
-        		System.out.print("Medicament ajouté avec succes: "+m);        	}
+        		System.out.print("Medicament ajouté avec succes ");        	}
         	
         	
         	public void viewPharmacistInformation() {
@@ -68,6 +74,12 @@ public class Tst {
         		System.out.println("Les medicaments diponibles: ");
         		mL.viewMedicin();
         	}
+
+
+			public void viewbooked() {
+				System.out.println("Les medicaments reserver: ");
+				bm.viewBookedMedicin();
+			}
 			
 			public void deletebooked() {
 				bm.deletebooked();
@@ -83,13 +95,15 @@ public class Tst {
         		System.out.println("Donner l'Id de pharmacien a supprimer: ");
         		int id=var.nextInt();
         		pL.deletePharmacist(id);
+				System.out.println("Pharmacien supprimer avec succes");
         	}
         	
-        	
+        	 
         	public void deleteMedicin() {
 				System.out.println("Donner l'Id de medicament a supprimer: ");
 				int id=var.nextInt();
-				mL.deleteMedicinStock(id);
+				mL.deleteMedicin(id);
+				System.out.println("Medicament supprimer avec succes");
 			}
         	
         	
@@ -99,7 +113,10 @@ public class Tst {
         	public void deleteMedicinStock() {
 				System.out.println("Donner l'Id de medicament a supprimer: ");
 				int id=var.nextInt();
-				mL.deleteMedicinStock(id);
+				System.out.println("Donner quantuté à supprimer: ");
+				int q=var.nextInt();
+				mL.deleteMedicinStock(id,q);
+				System.out.println("Medicament stock supprimer avec succes");
 			}
 			
         };
@@ -114,7 +131,7 @@ public class Tst {
 			
 			@Override
 			public void viewBookedMedicin() {
-				System.out.println("Veuillez entrer l'ID du medicament a reserver: ");
+				System.out.println("Les medicaments reserver: ");
 				bm.viewBookedMedicin();
 			}
 			
@@ -158,11 +175,12 @@ public class Tst {
 				System.out.println("2- Add Medicin Stock");
 				System.out.println("3- View Pharmacist Information");
 				System.out.println("4- View Medicin");
-				System.out.println("5- Delete the pharmacist list");
-				System.out.println("6- Delete booked medicin");
-				System.out.println("7- Delete Medicin");
-				System.out.println("8- Delete Medicin Stock");
-				System.out.println("9- Exit");
+				System.out.println("5- View booked medicin");
+				System.out.println("6- Delete pharmacist");
+				System.out.println("7- Delete booked medicin");
+				System.out.println("8- Delete Medicin");
+				System.out.println("9- Delete Medicin Stock");
+				System.out.println("10- Exit");
 				System.out.println("Choose an option: ");
 				option = var.nextInt();
 				switch(option) {
@@ -179,18 +197,21 @@ public class Tst {
 					admin.viewMedicin();
 					break;
 				case 5:
-					admin.deletePharmacist();
+					admin.viewbooked();
 					break;
 				case 6:
-					admin.deletebooked();
+					admin.deletePharmacist();
 					break;
 				case 7:
-					admin.deleteMedicin();
+					admin.deletebooked();
 					break;
 				case 8:
-					admin.deleteMedicinStock();
+					admin.deleteMedicin();
 					break;
 				case 9:
+					admin.deleteMedicinStock();
+					break;
+				case 10:
 					System.exit(0);
 					break;
 				}
@@ -226,6 +247,7 @@ public class Tst {
 		}while(admin.login(username, password)!="connected" || user.login(username, password)!="connected");
         
 	
+	var.close();
 	
 	}
 

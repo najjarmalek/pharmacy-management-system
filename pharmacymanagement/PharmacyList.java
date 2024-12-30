@@ -20,7 +20,7 @@ public class PharmacyList {
 	public void deletePharmacist(int id) {
 	    for (Pharmacist p : pharmacistList) {
 	        if (p.getpId() == id) {
-	        	pharmacistList.remove(id);
+	        	pharmacistList.remove(p);
 	        	break;
 	        }
 	    }

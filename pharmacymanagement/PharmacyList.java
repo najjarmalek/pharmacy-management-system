@@ -7,6 +7,7 @@ public class PharmacyList {
         
     }
 	
+	
 	public void addPharmacist(Pharmacist a) {
         pharmacistList.add(a);
     }

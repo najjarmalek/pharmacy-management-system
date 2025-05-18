@@ -41,5 +41,5 @@ Un système de gestion de pharmacie écrit en **Java**, avec deux types d'utilis
 
 ### 2. Cloner le projet :
 ```bash
-git clone [https://github.com/TON_UTILISATEUR/pharmacymanagement.git](https://github.com/najjarmalek/pharmacy-management-system)
+git clone https://github.com/najjarmalek/pharmacy-management-system
 cd pharmacymanagement
